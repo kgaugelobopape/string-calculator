@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="investec">
+<head>
+    <meta charset="UTF-8">
+    <title>Investec Task</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+</head>
+<body ng-controller="myCtrl">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <ul>
+                <li class="li">
+                    1. Find the highest common factor
+                    <pre>{{highestCommonFactor()}} of ({{integers}})</pre>
+                </li>
+
+                <li class="li">
+                    2
+                    <ul>
+                        <li class="li">
+                            a) format: Type: Line details - city - province/state - postal code – country
+                            <pre>{{prettyPrintAddress(addresses)}}</pre>
+                        </li>
+                        <li>
+                            b) Write a function to pretty print all the addresses in the attached file <span
+                                ng-repeat="address in addresses">
+                                <div class="well">
+                                    <span>{{prettyPrintAll(address)}}</span>
+                                </div>
+                            </span>
+                        </li>
+                        <li>
+                            c) Write a function to print an address of a certain type (postal, physical, business)
+                            <code>e.g Physical</code>
+                            <span ng-repeat="address in addressTypes">
+                                <div class="well">
+                                  <span>Address Type: {{ address.type.name }}</span>
+                                </div>
+                            </span>
+                        </li>
+                        <li>
+                            d) Write a function to validate an address
+                            <div class="well" ng-repeat="address in addresses">
+                                <span>
+                                    <pre>{{address}}</pre>
+                                    <div>Valid:<span class="badge">{{validateAddress(address).valid}}</span></div>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            e) For each address in the attached file, determine if it is valid or not, and if not give
+                            an indication of what is invalid in a message format of your choice.
+                            <div class="well" ng-repeat="address in addresses">
+                                <span>
+                                    <pre>{{address}}</pre>
+                                    <div class="alert {{validateAddress(address).valid === true ? 'alert-success':'alert-danger'}}">
+                                        <div ng-if="!validateAddress(address).valid">
+                                            Errors:{{validateAddress(address).message}}
+                                            </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
